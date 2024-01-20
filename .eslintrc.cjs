@@ -34,6 +34,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'react/jsx-curly-brace-presence': 'error',
     'prettier/prettier': 'error',
   },
 
