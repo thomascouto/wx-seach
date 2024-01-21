@@ -1,0 +1,24 @@
+.textInput {
+  background: url('/search.svg') no-repeat 3% / 1rem white;
+  border-radius: 1.5rem;
+  border: 2px solid white;
+  height: 3rem;
+  padding-left: 3rem;
+  color: gray;
+  font-size: 1rem;
+  width: 40%;
+  filter: drop-shadow(0 5px 10px lightgray);
+  outline: none;
+  -webkit-transition: 0.5s;
+}
+
+input[type='text']:focus {
+  padding-left: 3.5rem;
+  border: 2px solid lightblue;
+}
+
+@media (min-width: 600px) {
+  .textInput {
+    width: 30%;
+  }
+}
