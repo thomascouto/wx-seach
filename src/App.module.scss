@@ -13,3 +13,14 @@
   gap: 2rem;
   height: 70%;
 }
+
+.navigation {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  overflow: auto;
+  width: 60px;
+  height: 100%;
+}

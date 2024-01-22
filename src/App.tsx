@@ -1,27 +1,30 @@
-import { Suspense } from 'react';
+import { lazy } from 'react';
 
-import { Card, TextInput } from '@/components';
+import { HistoryCard, Spinner, TextInput } from '@/components';
 import useFetch from '@/hooks/useFetch';
 
 import styles from './App.module.scss';
 
+const Card = lazy(() => import('@/components/Card'));
+
 function App() {
-  const { getWeatherData, weather, error } = useFetch();
+  const { getWeatherData, weather, isLoading } = useFetch();
+
+  const handleData = (value: string, units: Units) => {
+    getWeatherData(value);
+  };
 
   return (
     <>
+      <nav className={styles.navigation}>
+        <HistoryCard theme="sunny" />
+      </nav>
       <section className={styles.searchBar}>
-        <h1>Weather Search</h1>
-
-        <TextInput action={getWeatherData} />
+        <TextInput action={handleData} />
       </section>
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <section className={styles.weatherSection}>
-          <Card />
-          <Card />
-          <Card />
-        </section>
-      </Suspense>
+      <section className={styles.weatherSection}>
+        {isLoading ? <Spinner /> : weather && <Card data={weather} />}
+      </section>
     </>
   );
 }
