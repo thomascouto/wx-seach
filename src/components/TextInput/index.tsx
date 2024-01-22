@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styles from './TextInput.module.scss';
 
 interface TextInputProps {
-  action(value: string): void;
+  action(value: string, units?: Units): void;
 }
 
 export default function TextInput({ action }: TextInputProps) {
