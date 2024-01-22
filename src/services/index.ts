@@ -1,10 +1,5 @@
 import { URL as serviceURL } from '@/util/constants';
 
-interface QueryProps {
-  q: string;
-  units?: 'metric' | 'imperial';
-}
-
 async function getWeatherService({ q, units = 'metric' }: QueryProps) {
   const params = new URLSearchParams({
     q,
