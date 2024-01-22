@@ -1,3 +1,10 @@
+type Units = 'metric' | 'imperial';
+
+interface QueryProps {
+  q: string;
+  units?: Units;
+}
+
 interface ErrorResponse {
   cod: number;
   message: string;
