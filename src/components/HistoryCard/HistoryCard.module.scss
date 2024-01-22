@@ -1,0 +1,33 @@
+.historyCard {
+  border-radius: 0.7rem;
+  padding: 0.5rem;
+  margin: 0 auto;
+
+  &:hover {
+    cursor: pointer;
+    transition: 0.5s all;
+  }
+}
+.sunny:hover {
+  background-color: #faf3e1;
+}
+
+.cloudy:hover {
+  background-color: #4a4742;
+}
+
+.rainy:hover {
+  background-color: #474d5b;
+}
+
+.storm:hover {
+  background-color: #40517b;
+}
+
+.windy:hover {
+  background-color: #40517b;
+}
+
+.snowing:hover {
+  background-color: #c8d8f9;
+}
