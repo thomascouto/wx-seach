@@ -1,6 +1,6 @@
 import { lazy, useEffect, useState } from 'react';
 
-import { HistoryCard, Spinner, TextInput } from '@/components';
+import { HistoryCard, Spinner, TextInput, ToggleButtons } from '@/components';
 import useFetch from '@/hooks/useFetch';
 
 import styles from './App.module.scss';
@@ -8,11 +8,14 @@ import styles from './App.module.scss';
 const Card = lazy(() => import('@/components/Card'));
 
 function App() {
-  const { getWeatherData, weather, isLoading, error } = useFetch();
+  const { getWeatherData, weather, isLoading, error } = useFetch<WX>();
   const [searchHistory, setSearchHistory] = useState<Record<number, WX>>({});
+  const [currentWeather, setCurrentWeather] = useState<WX>();
+  const [metricSystem, setMetricSystem] = useState<Units>('metric');
 
   useEffect(() => {
     if (weather) {
+      setCurrentWeather(weather);
       setSearchHistory((curr) => ({
         [weather.id]: weather,
         ...curr,
@@ -20,38 +23,45 @@ function App() {
     }
   }, [weather]);
 
-  const handleWeather = (value: string | WX, units?: Units) => {
-    getWeatherData(value, units);
-  };
-
-  const handleForecast = () => {
-    console.log('hi');
+  const handleWeather = (props: QueryProps) => {
+    getWeatherData({
+      ...props,
+      units: metricSystem,
+    });
   };
 
   const ErrorMessage = error && <h3>Error! {error.message}</h3>;
-  const FetchedData = weather && <Card data={weather} getForecast={handleForecast} />;
+  const FetchedData = currentWeather && <Card data={currentWeather} metricSystem={metricSystem} />;
 
   return (
     <>
       <nav className={styles.navigation}>
-        {Object.values(searchHistory).map((wx) => (
+        {Object.values(searchHistory).map((q) => (
           <HistoryCard
-            key={wx.id}
-            theme={wx.weather[0].main}
-            location={wx.name}
+            key={q.id}
+            theme={q.weather[0].main}
+            location={q.name}
             handleClick={() => {
-              handleWeather(wx);
+              setCurrentWeather(q);
             }}
           />
         ))}
       </nav>
 
       <section className={styles.searchBar}>
-        <TextInput action={handleWeather} />
+        <TextInput
+          action={(q) => {
+            handleWeather({ q });
+          }}
+        >
+          <ToggleButtons handleMetricSystem={setMetricSystem} active={metricSystem} />
+        </TextInput>
       </section>
-      <section className={styles.weatherSection}>
-        {isLoading ? <Spinner /> : FetchedData ?? ErrorMessage}
-      </section>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <section className={styles.weatherSection}>{FetchedData ?? ErrorMessage}</section>
+      )}
     </>
   );
 }
