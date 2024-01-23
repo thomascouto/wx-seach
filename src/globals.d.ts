@@ -3,6 +3,7 @@ type Units = 'metric' | 'imperial';
 interface QueryProps {
   q: string;
   units?: Units;
+  isForecast?: boolean;
 }
 
 type WeatherCondition =
@@ -30,11 +31,17 @@ interface WX {
   wind: Wind;
   clouds: Clouds;
   dt: number;
+  dt_txt: string;
   sys: Sys;
   timezone: number;
   id: number;
   name: string;
   cod: number;
+}
+
+interface ForecastWX {
+  cod: string;
+  list: WX[];
 }
 
 interface Coord {
