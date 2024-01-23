@@ -1,33 +1,22 @@
 .historyCard {
   border-radius: 0.7rem;
+  border: none;
   padding: 0.5rem;
-  margin: 0 auto;
+  position: relative;
 
   &:hover {
     cursor: pointer;
     transition: 0.5s all;
+    filter: brightness(0.9);
   }
-}
-.sunny:hover {
-  background-color: #faf3e1;
-}
 
-.cloudy:hover {
-  background-color: #4a4742;
-}
-
-.rainy:hover {
-  background-color: #474d5b;
-}
-
-.storm:hover {
-  background-color: #40517b;
-}
-
-.windy:hover {
-  background-color: #40517b;
-}
-
-.snowing:hover {
-  background-color: #c8d8f9;
+  .tooltip {
+    position: absolute;
+    top: 35%;
+    right: -110px;
+    text-align: left;
+    width: 100px;
+    font-size: 0.8rem;
+    color: black;
+  }
 }
