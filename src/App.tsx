@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { lazy, useEffect, useState } from 'react';
 
 import { HistoryCard, Spinner, TextInput, ToggleButtons } from '@/components';
@@ -60,7 +62,9 @@ function App() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <section className={styles.weatherSection}>{FetchedData ?? ErrorMessage}</section>
+        <section className={clsx(!error ? styles.weatherSection : styles.error)}>
+          {FetchedData ?? ErrorMessage}
+        </section>
       )}
     </>
   );
