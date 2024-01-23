@@ -5,6 +5,17 @@ interface QueryProps {
   units?: Units;
 }
 
+type WeatherCondition =
+  | 'Clouds'
+  | 'CloudsNight'
+  | 'CloudsDay'
+  | 'Rain'
+  | 'Snow'
+  | 'ClearNight'
+  | 'ClearDay'
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  | (string & {});
+
 interface ErrorResponse {
   cod: number;
   message: string;
