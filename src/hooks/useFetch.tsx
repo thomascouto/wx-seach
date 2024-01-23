@@ -4,7 +4,7 @@ import { getWeatherService } from '@/services';
 
 export default function useFetch<T>() {
   const [weather, setWeather] = useState<T>();
-  const [error, setError] = useState<ErrorResponse>();
+  const [error, setError] = useState<ErrorResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const getWeatherData = ({ q, isForecast, units = 'metric' }: QueryProps) => {
@@ -14,9 +14,12 @@ export default function useFetch<T>() {
       units,
       isForecast,
     })
-      .then(setWeather)
-      .catch((err: string) => {
-        const parsedError = JSON.parse(err) as ErrorResponse;
+      .then((res) => {
+        setWeather(res);
+        setError(null);
+      })
+      .catch(({ message }: Error) => {
+        const parsedError = JSON.parse(message) as ErrorResponse;
         setError(parsedError);
       })
       .finally(() => {
