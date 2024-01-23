@@ -3,10 +3,11 @@ import { useState } from 'react';
 import styles from './TextInput.module.scss';
 
 interface TextInputProps {
-  action(value: string, units?: Units): void;
+  action(value: string): void;
+  children: React.ReactNode;
 }
 
-export default function TextInput({ action }: TextInputProps) {
+export default function TextInput({ action, children }: TextInputProps) {
   const [value, setValue] = useState('');
 
   const handleSubmit = (e: React.KeyboardEvent) => {
@@ -17,15 +18,18 @@ export default function TextInput({ action }: TextInputProps) {
   };
 
   return (
-    <input
-      className={styles.textInput}
-      placeholder="Search for a location..."
-      type="text"
-      value={value}
-      onKeyDown={handleSubmit}
-      onChange={(e) => {
-        setValue(e.target.value);
-      }}
-    />
+    <div className={styles.inputContainer}>
+      <input
+        className={styles.textInput}
+        placeholder="Search for a location..."
+        type="text"
+        value={value}
+        onKeyDown={handleSubmit}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+      {children}
+    </div>
   );
 }
