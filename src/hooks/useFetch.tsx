@@ -7,10 +7,16 @@ export default function useFetch() {
   const [error, setError] = useState<ErrorResponse>();
   const [isLoading, setIsLoading] = useState(false);
 
-  const getWeatherData = (q: string) => {
+  const getWeatherData = (q: string | WX, units: Units = 'metric') => {
+    if (typeof q === 'object') {
+      setWeather(q);
+      return;
+    }
+
     setIsLoading(true);
     getWeatherService({
       q,
+      units,
     })
       .then(setWeather)
       .catch((err: string) => {
