@@ -37,4 +37,21 @@
 		font-size: 0.7rem;
 	}
   }
+
+  .forecast {
+	background: url('/maximize.svg');
+	border: none;
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	left: 93%;
+	top: 2%;
+	cursor: pointer;
+	transition: 0.2s ease-in-out all;
+
+	&:hover {
+		transform: rotate(180deg);
+	}
+  }
 }
+
