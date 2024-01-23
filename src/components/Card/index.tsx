@@ -1,14 +1,13 @@
+import { getIcon } from '@/util';
+
 import styles from './Card.module.scss';
 
 interface CardProps {
   data: WX;
+  getForecast(): void;
 }
 
-function getIcon(weatherCondition: string) {}
-
-export default function Card({ data }: CardProps) {
-  console.log(data);
-
+export default function Card({ data, getForecast }: CardProps) {
   const {
     name,
     weather,
@@ -17,18 +16,18 @@ export default function Card({ data }: CardProps) {
     main: { humidity, temp },
   } = data;
 
-  const handleForecast = () => {};
+  const { main, description } = weather[0];
 
   return (
     <article className={styles.card}>
-      <button className={styles.forecast} onClick={handleForecast} />
-      <img src="/wx/cloudy-day.svg" alt="Weather" />
+      <button className={styles.forecast} onClick={getForecast} />
+      <img src={'/wx/' + getIcon(main) + '.svg'} alt="Current weather" title={description} />
       <div>
         <span className={styles.temp}>{Math.round(temp)}</span>
-        <span>
+        <span title="Humidity">
           💧{humidity}% | {weather[0].main}
         </span>
-        <span>{`💨 ${wind.deg.toString().padStart(3, '0')}° at ${Math.round(wind.speed)}`}</span>
+        <span title="Wind">{`💨 ${wind.deg.toString().padStart(3, '0')}° at ${Math.round(wind.speed)}`}</span>
         <span>
           {name}, {country}
         </span>
