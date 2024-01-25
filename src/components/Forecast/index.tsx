@@ -26,7 +26,7 @@ function removeDuplicates(list: WX[]) {
 }
 
 export default function Forecast({ location, units }: ForecastProps) {
-  const { getWeatherData, weather, error } = useFetch<ForecastWX>();
+  const { getWeatherData, weather } = useFetch<ForecastWX>();
 
   useEffect(() => {
     if (location?.length) {
