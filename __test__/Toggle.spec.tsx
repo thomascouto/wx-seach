@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import Toggle from '@/components/Toggle';
 
@@ -23,5 +23,17 @@ describe('Toggle tests', () => {
     expect(imperial.classList.length).toEqual(0);
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('should call handleMetricSystem on click', () => {
+    const click = jest.fn();
+    render(<Toggle active="metric" handleMetricSystem={click} />);
+
+    const [metric, imperial] = screen.getAllByRole('button');
+
+    fireEvent.click(metric);
+    fireEvent.click(imperial);
+
+    expect(click).toHaveBeenCalledTimes(2);
   });
 });

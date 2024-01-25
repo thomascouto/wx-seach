@@ -1,0 +1,319 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card tests should expand card 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    Chicago
+    , 
+    US
+    <button
+      class="forecast hide"
+    />
+  </div>
+  <article
+    class="card"
+  >
+    <img
+      alt="Current weather"
+      src="/wx/cloudy-day.svg"
+      title="overcast clouds"
+    />
+    <div
+      class="info"
+    >
+      <span
+        class="temp"
+      >
+        3
+        °
+      </span>
+      <span
+        title="Humidity"
+      >
+        💧
+        96
+        % | 
+        Clouds
+      </span>
+      <span
+        title="Wind"
+      >
+        💨 051° at 0
+      </span>
+    </div>
+  </article>
+  <article
+    class="forecastWeather"
+  >
+    <div
+      class="forecastData"
+    >
+      <span>
+        2024-01-26
+      </span>
+      <img
+        alt="Wind 48° at 1.92"
+        src="/arrow.png"
+        style="width: 15px;"
+      />
+      <span>
+        <img
+          src="/hot-temp.png"
+          width="20"
+        />
+        1
+        °
+      </span>
+      <span>
+        <img
+          src="/low-temp.png"
+          width="20"
+        />
+        1
+        °
+      </span>
+      <span>
+        💧
+        100
+        %
+      </span>
+      <img
+        alt="Weather"
+        src="/wx/rainy.svg"
+        width="160px"
+      />
+      <span
+        class="temperature"
+      >
+        1
+        °
+      </span>
+    </div>
+    <div
+      class="forecastData"
+    >
+      <span>
+        2024-01-27
+      </span>
+      <img
+        alt="Wind 334° at 1.27"
+        src="/arrow.png"
+        style="width: 15px;"
+      />
+      <span>
+        <img
+          src="/hot-temp.png"
+          width="20"
+        />
+        1
+        °
+      </span>
+      <span>
+        <img
+          src="/low-temp.png"
+          width="20"
+        />
+        1
+        °
+      </span>
+      <span>
+        💧
+        99
+        %
+      </span>
+      <img
+        alt="Weather"
+        src="/wx/rainy.svg"
+        width="160px"
+      />
+      <span
+        class="temperature"
+      >
+        1
+        °
+      </span>
+    </div>
+    <div
+      class="forecastData"
+    >
+      <span>
+        2024-01-28
+      </span>
+      <img
+        alt="Wind 16° at 2.53"
+        src="/arrow.png"
+        style="width: 15px;"
+      />
+      <span>
+        <img
+          src="/hot-temp.png"
+          width="20"
+        />
+        2
+        °
+      </span>
+      <span>
+        <img
+          src="/low-temp.png"
+          width="20"
+        />
+        2
+        °
+      </span>
+      <span>
+        💧
+        99
+        %
+      </span>
+      <img
+        alt="Weather"
+        src="/wx/cloudy-day.svg"
+        width="160px"
+      />
+      <span
+        class="temperature"
+      >
+        2
+        °
+      </span>
+    </div>
+    <div
+      class="forecastData"
+    >
+      <span>
+        2024-01-29
+      </span>
+      <img
+        alt="Wind 342° at 2.03"
+        src="/arrow.png"
+        style="width: 15px;"
+      />
+      <span>
+        <img
+          src="/hot-temp.png"
+          width="20"
+        />
+        2
+        °
+      </span>
+      <span>
+        <img
+          src="/low-temp.png"
+          width="20"
+        />
+        2
+        °
+      </span>
+      <span>
+        💧
+        88
+        %
+      </span>
+      <img
+        alt="Weather"
+        src="/wx/cloudy-day.svg"
+        width="160px"
+      />
+      <span
+        class="temperature"
+      >
+        2
+        °
+      </span>
+    </div>
+    <div
+      class="forecastData"
+    >
+      <span>
+        2024-01-30
+      </span>
+      <img
+        alt="Wind 198° at 3.44"
+        src="/arrow.png"
+        style="width: 15px;"
+      />
+      <span>
+        <img
+          src="/hot-temp.png"
+          width="20"
+        />
+        2
+        °
+      </span>
+      <span>
+        <img
+          src="/low-temp.png"
+          width="20"
+        />
+        2
+        °
+      </span>
+      <span>
+        💧
+        79
+        %
+      </span>
+      <img
+        alt="Weather"
+        src="/wx/cloudy-day.svg"
+        width="160px"
+      />
+      <span
+        class="temperature"
+      >
+        2
+        °
+      </span>
+    </div>
+  </article>
+</div>
+`;
+
+exports[`Card tests should render correctly 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    Chicago
+    , 
+    US
+    <button
+      class="forecast expand"
+    />
+  </div>
+  <article
+    class="card"
+  >
+    <img
+      alt="Current weather"
+      src="/wx/cloudy-day.svg"
+      title="overcast clouds"
+    />
+    <div
+      class="info"
+    >
+      <span
+        class="temp"
+      >
+        3
+        °
+      </span>
+      <span
+        title="Humidity"
+      >
+        💧
+        96
+        % | 
+        Clouds
+      </span>
+      <span
+        title="Wind"
+      >
+        💨 051° at 0
+      </span>
+    </div>
+  </article>
+</div>
+`;

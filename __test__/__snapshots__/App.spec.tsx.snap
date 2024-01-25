@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App tests should render an error message 1`] = `
+<div>
+  <section
+    class="searchBar"
+  >
+    <div
+      class="inputContainer"
+    >
+      <input
+        class="textInput"
+        placeholder="Search for a location..."
+        type="text"
+        value=""
+      />
+      <div
+        class="toggleButtons"
+      >
+        <button
+          class="active"
+        >
+          °C
+        </button>
+        <button
+          class=""
+        >
+          °F
+        </button>
+      </div>
+    </div>
+  </section>
+  <section
+    class="error"
+  >
+    <h3>
+      Error! 
+      city not found
+    </h3>
+  </section>
+</div>
+`;
+
+exports[`App tests should render correctly 1`] = `
+<div>
+  <section
+    class="searchBar"
+  >
+    <div
+      class="inputContainer"
+    >
+      <input
+        class="textInput"
+        placeholder="Search for a location..."
+        type="text"
+        value=""
+      />
+      <div
+        class="toggleButtons"
+      >
+        <button
+          class="active"
+        >
+          °C
+        </button>
+        <button
+          class=""
+        >
+          °F
+        </button>
+      </div>
+    </div>
+  </section>
+  <section
+    class="weatherSection"
+  />
+</div>
+`;

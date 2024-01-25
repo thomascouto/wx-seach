@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput tests should render correctly  1`] = `
+<div>
+  <div
+    class="inputContainer"
+  >
+    <input
+      class="textInput"
+      placeholder="Search for a location..."
+      type="text"
+      value=""
+    />
+    <div
+      class="toggleButtons"
+    >
+      <button
+        class=""
+      >
+        °C
+      </button>
+      <button
+        class="active"
+      >
+        °F
+      </button>
+    </div>
+  </div>
+</div>
+`;

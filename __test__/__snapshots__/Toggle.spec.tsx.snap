@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toggle tests should imperial be active by default 1`] = `
+exports[`Toggle tests should imperial be active 1`] = `
 <div>
   <div
     class="toggleButtons"
@@ -19,7 +19,7 @@ exports[`Toggle tests should imperial be active by default 1`] = `
 </div>
 `;
 
-exports[`Toggle tests should metric be active by default 1`] = `
+exports[`Toggle tests should metric be active 1`] = `
 <div>
   <div
     class="toggleButtons"
