@@ -1,0 +1,10 @@
+services:
+  wx:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - ACCESS_KEY=${ACCESS_KEY}
+    env_file:
+      - .env
+      - .env.local
