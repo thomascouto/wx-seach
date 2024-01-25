@@ -1,15 +1,17 @@
-import weather from './weather.json';
-
 import { render, screen } from '@testing-library/react';
 
 import App from '@/App';
 import * as useFetch from '@/hooks/useFetch';
 
 describe('App tests', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should render correctly', () => {
     jest.spyOn(useFetch, 'default').mockImplementation(() => ({
       getWeatherData: jest.fn(),
-      weather,
+      weather: undefined,
       isLoading: false,
       error: null,
     }));
@@ -32,5 +34,20 @@ describe('App tests', () => {
 
     expect(h3.innerHTML).toBe('Error! city not found');
     expect(container).toMatchSnapshot();
+  });
+
+  it('should render loading', () => {
+    jest.spyOn(useFetch, 'default').mockImplementation(() => ({
+      getWeatherData: jest.fn(),
+      weather: null,
+      isLoading: true,
+      error: null,
+    }));
+
+    const { container } = render(<App />);
+    const loader = screen.getByTestId('loading');
+
+    expect(container).toMatchSnapshot();
+    expect(loader).toBeDefined();
   });
 });

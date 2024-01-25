@@ -76,3 +76,40 @@ exports[`App tests should render correctly 1`] = `
   />
 </div>
 `;
+
+exports[`App tests should render loading 1`] = `
+<div>
+  <section
+    class="searchBar"
+  >
+    <div
+      class="inputContainer"
+    >
+      <input
+        class="textInput"
+        placeholder="Search for a location..."
+        type="text"
+        value=""
+      />
+      <div
+        class="toggleButtons"
+      >
+        <button
+          class="active"
+        >
+          °C
+        </button>
+        <button
+          class=""
+        >
+          °F
+        </button>
+      </div>
+    </div>
+  </section>
+  <div
+    class="loader"
+    data-testid="loading"
+  />
+</div>
+`;
