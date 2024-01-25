@@ -1,6 +1,6 @@
 import { WEATHER_ICON } from './constants';
 
-const isDay = () => new Date().getTime() < 18;
+const isDay = () => new Date().getUTCHours() < 20;
 
 export function getIcon(weatherCondition: WeatherCondition) {
   let wxSuffix = '';
