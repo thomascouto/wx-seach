@@ -11,7 +11,7 @@ const Card = lazy(() => import('@/components/Card'));
 
 function App() {
   const { getWeatherData, weather, isLoading, error } = useFetch<WX>();
-  const [searchHistory, setSearchHistory] = useState<Record<number, WX>>({});
+  const [searchHistory, setSearchHistory] = useState<Record<number, WX>>();
   const [currentWeather, setCurrentWeather] = useState<WX>();
   const [metricSystem, setMetricSystem] = useState<Units>('metric');
 
@@ -37,18 +37,20 @@ function App() {
 
   return (
     <>
-      <nav className={styles.navigation}>
-        {Object.values(searchHistory).map((q) => (
-          <HistoryCard
-            key={q.id}
-            theme={q.weather[0].main}
-            location={q.name}
-            handleClick={() => {
-              setCurrentWeather(q);
-            }}
-          />
-        ))}
-      </nav>
+      {searchHistory && (
+        <nav className={styles.navigation}>
+          {Object.values(searchHistory).map((q) => (
+            <HistoryCard
+              key={q.id}
+              theme={q.weather[0].main}
+              location={q.name}
+              handleClick={() => {
+                setCurrentWeather(q);
+              }}
+            />
+          ))}
+        </nav>
+      )}
 
       <section className={styles.searchBar}>
         <TextInput
