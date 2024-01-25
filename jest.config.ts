@@ -185,7 +185,24 @@ const config: Config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        diagnostics: {
+          ignoreCodes: [1343],
+        },
+        astTransformers: {
+          before: [
+            {
+              path: 'node_modules/ts-jest-mock-import-meta', // or, alternatively, 'ts-jest-mock-import-meta' directly, without node_modules.
+              options: { metaObjectReplacement: { env: { VITE_ACCESS_KEY: '1234' } } },
+            },
+          ],
+        },
+      },
+    ],
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
