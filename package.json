@@ -11,7 +11,8 @@
     "test": "jest --passWithNoTests --runInBand",
     "test:watch": "jest --watch",
     "test:update": "jest --updateSnapshot",
-    "test:coverage": "jest --collectCoverage --passWithNoTests --runInBand"
+    "test:coverage": "jest --collectCoverage --passWithNoTests --runInBand",
+    "docker": "docker-compose --env-file ./.env.local up"
   },
   "dependencies": {
     "react": "^18.2.0",
