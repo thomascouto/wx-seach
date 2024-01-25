@@ -11,7 +11,7 @@ export default function TextInput({ action, children }: TextInputProps) {
   const [value, setValue] = useState('');
 
   const handleSubmit = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && value.trim().length) {
       action(value);
       setValue('');
     }
